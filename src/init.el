@@ -276,3 +276,5 @@
 ;; (add-to-list 'load-path (concat my-lisp-home "/cperl-mode"))
 ;; (add-to-list 'load-path (concat my-lisp-home "/php-mode"))
 
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
