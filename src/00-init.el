@@ -283,7 +283,27 @@
 (edit-server-start)
   
 ;; Develop and keep personal snippets under ~/emacs.d/mysnippets
-(setq yas/root-directory "~/emacs.d/src/yasnips")
+(setq yas/root-directory "~/.emacs.d/src/yasnips")
 
 ;; Load the snippets
 (yas/load-directory yas/root-directory)
+
+(setq ibuffer-saved-filter-groups
+      '(("home"
+	 ("emacs-config" (or (filename . ".emacs.d")))
+	 ("Org" (or (mode . org-mode)
+		    (filename . "OrgMode")))
+	 ("Web Dev" (or (mode . html-mode)
+			(mode . css-mode)))
+	 ("Magit" (name . "\*magit"))
+	 ("ERC" (mode . erc-mode))
+	 ("Help" (or (name . "\*Help\*")
+		     (name . "\*Apropos\*")
+		     (name . "\*info\*"))))))
+
+(add-hook 'ibuffer-mode-hook 
+	  '(lambda ()
+	     (ibuffer-auto-mode 1)
+	     (ibuffer-switch-to-saved-filter-groups "home")))
+
+(setq ibuffer-show-empty-filter-groups nil)
