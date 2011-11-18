@@ -307,3 +307,9 @@
 	     (ibuffer-switch-to-saved-filter-groups "home")))
 
 (setq ibuffer-show-empty-filter-groups nil)
+
+;; (setq markdown-command-needs-filename t)
+(add-to-list 'hippie-expand-try-functions-list 'yas/hippie-try-expand)
+
+;; (global-set-key (kbd "C-.") 'hippie-expand)
+
